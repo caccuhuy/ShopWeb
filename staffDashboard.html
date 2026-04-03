@@ -56,8 +56,8 @@
                     <p class="text-sm text-gray-400">Chào mừng trở lại. Đây là cái nhìn tổng quan về hoạt động hôm nay.</p>
                 </div>
                 <div class="flex space-x-3">
-                    <button class="px-6 py-2.5 bg-white border border-gray-100 text-gray-600 rounded-xl font-bold text-xs hover:bg-gray-50 transition-all shadow-sm">Xuất báo cáo</button>
-                    <button class="px-6 py-2.5 bg-[#3451B2] text-white rounded-xl font-bold text-xs shadow-lg shadow-blue-100 hover:bg-blue-800 transition-all">Tạo phiếu mới</button>
+                    <button id="btnExportReport" class="px-6 py-2.5 bg-white border border-gray-100 text-gray-600 rounded-xl font-bold text-xs hover:bg-gray-50 transition-all shadow-sm">Xuất báo cáo</button>
+                    <button id="btnCreateTicket" class="px-6 py-2.5 bg-[#3451B2] text-white rounded-xl font-bold text-xs shadow-lg shadow-blue-100 hover:bg-blue-800 transition-all">Tạo phiếu mới</button>
                 </div>
             </header>
 
@@ -125,40 +125,30 @@
 
             <section class="mt-10 bg-white rounded-[2.5rem] border border-gray-100 shadow-sm overflow-hidden">
                 <div class="p-8 border-b border-gray-50 flex justify-between items-center">
-                    <h3 class="font-bold text-gray-900 uppercase text-xs tracking-widest">Giao dịch gần đây</h3>
-                    <button class="text-[#3451B2] text-xs font-black hover:underline tracking-tight">XEM TẤT CẢ</button>
+                    <h3 class="font-bold text-gray-900 uppercase text-xs tracking-widest">Quản lý Kho hàng</h3>
+                    <div class="relative">
+                        <input type="text" id="inventorySearch" placeholder="Tìm tên sản phẩm..." class="text-xs border border-gray-100 rounded-lg px-4 py-2 outline-none focus:border-[#3451B2]">
+                    </div>
                 </div>
-                <table class="w-full text-left text-sm border-collapse">
-                    <thead class="bg-gray-50/50 text-[10px] font-black text-gray-400 uppercase tracking-widest">
-                        <tr>
-                            <th class="px-8 py-5">Mã phiếu</th>
-                            <th class="px-8 py-5">Loại phiếu</th>
-                            <th class="px-8 py-5">Nhân viên</th>
-                            <th class="px-8 py-5">Ngày tạo</th>
-                            <th class="px-8 py-4 text-right pr-12">Trạng thái</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-50">
-                        <tr class="hover:bg-gray-50/50 transition-colors">
-                            <td class="px-8 py-6 font-bold text-gray-900 group-hover:text-[#3451B2]">#ORD-7721</td>
-                            <td class="px-8 py-6 text-gray-500 font-medium italic text-xs">Phiếu nhập kho vật tư</td>
-                            <td class="px-8 py-6">
-                                <div class="flex items-center space-x-2">
-                                    <div class="w-6 h-6 bg-blue-100 rounded-full border border-white shadow-sm"></div>
-                                    <span class="text-xs font-bold text-gray-700">Minh Anh</span>
-                                </div>
-                            </td>
-                            <td class="px-8 py-6 text-gray-400 text-xs">24/10/2023</td>
-                            <td class="px-8 py-6 text-right pr-12">
-                                <span class="px-4 py-1.5 bg-green-50 text-green-600 text-[10px] font-black rounded-full uppercase border border-green-100 shadow-sm">Hoàn tất</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm border-collapse">
+                        <thead class="bg-gray-50/50 text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                            <tr>
+                                <th class="px-8 py-5">Sản phẩm</th>
+                                <th class="px-8 py-5 text-center">Tồn kho</th>
+                                <th class="px-8 py-5 text-right pr-12">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventoryTableBody" class="divide-y divide-gray-50">
+                            <!-- Dữ liệu sẽ đổ vào đây -->
+                        </tbody>
+                    </table>
+                </div>
             </section>
         </main>
     </div>
 
+    <script src="assets/js/products_data.js"></script>
     <script src="assets/js/api.js"></script>
     <script src="assets/js/staff-dashboard.js"></script>
 </body>
