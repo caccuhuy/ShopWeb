@@ -73,7 +73,7 @@ const CartManager = {
     logout() {
         localStorage.removeItem('customerToken');
         localStorage.removeItem('customerUser');
-        window.location.href = 'index.html';
+        window.location.href = window.location.pathname.includes('/pages/') ? '../index.html' : 'index.html';
     },
 
     syncUI() {
@@ -84,7 +84,10 @@ const CartManager = {
             badge.style.display = total > 0 ? 'flex' : 'none';
         });
         document.querySelectorAll('.cart-icon-btn').forEach(icon => {
-            icon.onclick = (e) => { e.preventDefault(); window.location.href = 'checkOut.html'; };
+            icon.onclick = (e) => { 
+                e.preventDefault(); 
+                window.location.href = window.location.pathname.includes('/pages/') ? 'checkOut.html' : 'pages/checkOut.html'; 
+            };
         });
         
         // Gọi thêm hàm cập nhật User
