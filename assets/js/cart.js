@@ -73,7 +73,7 @@ const CartManager = {
     logout() {
         localStorage.removeItem('customerToken');
         localStorage.removeItem('customerUser');
-        window.location.href = window.location.pathname.includes('/pages/') ? '../index.html' : 'index.html';
+        window.location.href = window.location.pathname.includes('/pages/') ? 'customerLogin.html' : 'pages/customerLogin.html';
     },
 
     syncUI() {
